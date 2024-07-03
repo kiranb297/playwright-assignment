@@ -1,4 +1,5 @@
 import { test, expect } from '../Fixtures/amazonFixtures';
+import amazonTestData from '../Testdata/amazonTestData.json';
 
 test.describe('Amazon product search', async () => {
 
@@ -11,7 +12,7 @@ test.describe('Amazon product search', async () => {
   test('Search for "Shoes"', async ({ homePage, searchResultsPage }) => {
 
     // Launching Amazon url.
-    await homePage.goto("https://www.amazon.in/");
+    await homePage.goto(amazonTestData.amazon_url);
 
     // Verifying user "Demo" is logged in.
     await homePage.verifyUser();
@@ -28,7 +29,7 @@ test.describe('Amazon product search', async () => {
   test('Apply filters for search results', async ({ homePage, searchResultsPage }) => {
 
     // Launching Amazon url.
-    await homePage.goto("https://www.amazon.in/");
+    await homePage.goto(amazonTestData.amazon_url);
 
     // Verifying user "Demo" is logged in.
     await homePage.verifyUser();
@@ -54,7 +55,7 @@ test.describe('Amazon product search', async () => {
   test('Add perticular product to cart', async ({ homePage, searchResultsPage, cartPage}) => {
 
     // Launching Amazon url.
-    await homePage.goto("https://www.amazon.in/");
+    await homePage.goto(amazonTestData.amazon_url);
 
     // Verifying user "Demo" is logged in.
     await homePage.verifyUser();
@@ -75,16 +76,16 @@ test.describe('Amazon product search', async () => {
     await searchResultsPage.verifyMaterialFilter("Leather");
 
     // Add perticular product to cart
-    await searchResultsPage.addProductToCart()
+    await searchResultsPage.addProductToCart();
 
     // Navigate to cart page
-    await cartPage.gotoCart()
+    await cartPage.gotoCart();
 
     // Verify Product name in the cart page
-    await cartPage.verifyItemInCart()
+    await cartPage.verifyItemInCart();
 
     // Remove items in the cart page
-    await cartPage.removeItemFromCart()
+    await cartPage.removeItemFromCart();
   })
   
 })
