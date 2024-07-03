@@ -5,15 +5,55 @@ export class searchResultsPage {
 
     private readonly searchedProductName: Locator;
     private readonly resultPage: Locator;
+    private readonly nikeShoe: Locator;
 
     constructor(public readonly page: Page) {
-        this.resultPage =this.page.getByText('Results', { exact: true });
+        this.resultPage = this.page.getByText('Results', { exact: true });
         this.searchedProductName = this.page.locator("//span[contains(@data-component-type,'result-info')]//span[contains(text(),'results')]/following-sibling::span[@class]");
+        this.nikeShoe = this.page.locator("//span[text()='Mens E-Series 1.0 Running Shoe']");
     }
 
     // Verify it is showing results for "searched product".
     async verifySearchResult(productName: string): Promise<void> {
-        await expect( this.resultPage,'Verify "Result" page').toBeVisible();
+        await expect(this.resultPage, 'Verify "Result" page').toBeVisible();
         await expect(this.searchedProductName, `Verify showing results for searched keyword "${productName}"`).toContainText(productName);
+    }
+
+    // Apply filters by company/brand name
+    async filterByBrand(brandName: string): Promise<void> {
+        await this.page.waitForLoadState()
+        await this.page.getByRole('link', { name: brandName, exact: true }).click();
+    }
+
+    // Verify brand filters
+    async verifyBrandFilter(brandName: string): Promise<void> {
+        await this.page.waitForLoadState()
+        await expect(this.page.locator(`//span[text()='${brandName}']/..//input`), `Verify product is filtered by "${brandName}" brand/company`).toBeChecked();
+    }
+
+    // Apply filters by material
+    async filterByMaterial(material: string): Promise<void> {
+        await this.page.waitForLoadState()
+        await this.page.getByRole('link', { name: material, exact: true }).click();
+    }
+
+    // Verify material filters
+    async verifyMaterialFilter(material: string): Promise<void> {
+        await this.page.waitForLoadState()
+        await expect(this.page.locator(`//span[text()='${material}']/..//input`), `Verify product is filtered by "${material}" material`).toBeChecked();
+    }
+
+    // Add perticular product to cart
+    async addProductToCart(): Promise<void> {
+        await this.page.waitForLoadState()
+        const pagePromise = this.page.context().waitForEvent('page');
+        await this.nikeShoe.click()
+        const newPage = await pagePromise;
+        await newPage.waitForLoadState();
+        await expect(newPage.locator("//a[@id='bylineInfo']")).toContainText("Nike");
+        await expect(newPage.locator("//span[text()='Outer material']/../../following-sibling::div//span//span")).toContainText("Leather");
+        await newPage.getByLabel('Add to Cart').click();
+        await expect(newPage.getByRole('heading', { name: 'Added to Cart' })).toBeVisible();
+        await newPage.close();
     }
 }
