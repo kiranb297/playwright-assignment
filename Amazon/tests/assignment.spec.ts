@@ -17,3 +17,10 @@ test('Search for "Shoes"', async ({ page }) => {
   await expect(page.locator("//span[contains(@data-component-type,'result-info')]//span[contains(text(),'results')]/following-sibling::span[@class]"),
     'Verify showing results for searched keyword "Shoes"').toContainText("Shoes");
 });
+
+// Test case to search for watches in Amazon and apply two filters.
+test('Apply filters for search results', async ({ page }) => {
+
+
+
+})
