@@ -21,7 +21,7 @@ export class searchResultsPage {
 
     // Apply filters by company/brand name
     async filterByBrand(brandName: string): Promise<void> {
-        await this.page.waitForLoadState()
+        await this.page.waitForLoadState('domcontentloaded')
         await this.page.getByRole('link', { name: brandName, exact: true }).click();
     }
 

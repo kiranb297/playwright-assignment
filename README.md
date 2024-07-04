@@ -25,7 +25,7 @@ To run test case locally follow the steps below:
   * Open terminal (Ctrl + Shift +`) or click on three ellipses on the top select terminal and click on new terminal.
   * Enter "npm install" in the terminal and click enter.
   * After installation
-    * "npx playwright test --headed" run this command to run all test cases in headded mode in parrallel mode.
+    * "npx playwright test --headed" run this command to run all test cases in headded mode in parrallel.
           Note : If it is showing to install browsers use the command "npx playwright install".
     * "npx playwright test" run this command to run all test cases in headless mode.
     * "npx playwright show-report" run this command to view html report with attached video.
