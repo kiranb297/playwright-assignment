@@ -70,7 +70,7 @@ test.describe('Amazon product search', async () => {
     // Verify the product is filtered by material
     await searchResultsPage.verifyMaterialFilter("Leather");
 
-    // Add perticular product to cart
+    // Add perticular product to cart by verifying applied filters in product details page.
     await searchResultsPage.addProductToCart();
 
     // Navigate to cart page

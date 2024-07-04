@@ -50,8 +50,10 @@ export class searchResultsPage {
         await this.nikeShoe.click()
         const newPage = await pagePromise;
         await newPage.waitForLoadState();
+        // Verify filters in the product details page.
         await expect(newPage.locator("//a[@id='bylineInfo']"),'Verify product brand to be "Nike"').toContainText("Nike");
         await expect(newPage.locator("//span[text()='Outer material']/../../following-sibling::div//span//span"),'Verify product material to be "Leather"').toContainText("Leather");
+        // Add product to cart
         await newPage.getByLabel('Add to Cart').click();
         await expect(newPage.getByRole('heading', { name: 'Added to Cart' }),'Verify product added to cart').toBeVisible();
         await newPage.close();
