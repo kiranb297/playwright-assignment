@@ -35,9 +35,4 @@ To run test case locally follow the steps below:
       
   ############################ IMPORTANT ####################################
   
-  Note : If the test cases are running more than 6 to 7 times continuously, Amazon uses captcha to verify it is not automated bot,
-      so we need to login to Amazon manually and verify the captcha for the Demo user.
-
-
-
-
+  Note : If the test cases are running more than 6 to 7 times continuously, Amazon uses captcha to verify it is not automated bot,so we need to login to Amazon manually and verify the captcha for the Demo user.
