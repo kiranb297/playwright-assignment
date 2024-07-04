@@ -1,17 +1,20 @@
 # playwright-assignment
 Tests
+
 Amazon product search Repo consists of three test cases
 1. Search for "Shoes" : In th Amazon Search for Shoes and verify the search result.
 2. Apply filters for search results: After searching for product apply atleast of 2 filters for the search result.
 3. Add perticular product to cart : Add a perticular product to cart by verifying the applied filters to the search result.
 
 Fixtures
+
 Amazon Fixtures
 1. Home Page : Fixture for Amazon home page
 2. Search result page : Fixture for Amazon search result page
 3. Cart page : FIxture for Amazon cart page
 
 Pages POM (Page Object Model)
+
 1. Home Page
 2. Search result page
 3. Cart page
