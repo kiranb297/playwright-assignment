@@ -31,9 +31,10 @@ To run test case locally follow the steps below:
           Note : If it is showing to install browsers use the command "npx playwright install".
     * "npx playwright test" run this command to run all test cases in headless mode.
     * "npx playwright show-report" run this command to view html report with attached video.
+
       
-************************IMPORTANT**************************************
-Note : If the test cases are running more than 6 to 7 times continuously, Amazon uses captcha to verify it is not automated bot.
+  ************************IMPORTANT**************************************
+  Note : If the test cases are running more than 6 to 7 times continuously, Amazon uses captcha to verify it is not automated bot.
       so we need to login to Amazon manually and verify the captcha for the Demo user.
 
 
