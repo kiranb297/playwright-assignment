@@ -1,6 +1,6 @@
 import { Locator, Page, expect } from "@playwright/test";
 
-//Signin POM
+//Home page POM
 export class homePage {
 
     private readonly amazonLogo: Locator;

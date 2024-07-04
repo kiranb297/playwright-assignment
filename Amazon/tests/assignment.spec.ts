@@ -1,12 +1,7 @@
-import { test, expect } from '../Fixtures/amazonFixtures';
+import { test } from '../Fixtures/amazonFixtures';
 import amazonTestData from '../Testdata/amazonTestData.json';
 
 test.describe('Amazon product search', async () => {
-
-  // Sign out of Amazon
-  test.afterEach('Signout', async ({ homePage }) => {
-    await homePage.signOut();
-  })
 
   // Test case to search for Shoes in Amazon
   test('Search for "Shoes"', async ({ homePage, searchResultsPage }) => {
@@ -25,7 +20,7 @@ test.describe('Amazon product search', async () => {
 
   });
 
-  // Test case to search for watches in Amazon and apply any two filters.
+  // Test case to search for Shoes in Amazon and apply any two filters.
   test('Apply filters for search results', async ({ homePage, searchResultsPage }) => {
 
     // Launching Amazon url.
@@ -86,6 +81,11 @@ test.describe('Amazon product search', async () => {
 
     // Remove items in the cart page
     await cartPage.removeItemFromCart();
+  })
+
+  // Sign out of Amazon
+  test.afterEach('Signout', async ({ homePage }) => {
+    await homePage.signOut();
   })
   
 })
