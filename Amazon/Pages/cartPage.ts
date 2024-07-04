@@ -16,12 +16,12 @@ export class cartPage {
     //navigate to cart page
     async gotoCart(): Promise<void> {
         await this.cart.click()
-        await expect(this.itemInCart.nth(0)).toBeVisible()
+        await expect(this.itemInCart.nth(0),'Verify cart item is visible').toBeVisible()
     }
 
     // verify item name in the cart
     async verifyItemInCart(): Promise<void> {
-        await expect(this.itemInCart).toContainText("Nike Mens E-Series Running Shoes")
+        await expect(this.itemInCart,'Verify added product title in cart').toContainText("Nike Mens E-Series Running Shoes")
     }
 
     //Delete item from the cart
