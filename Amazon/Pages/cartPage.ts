@@ -27,8 +27,8 @@ export class cartPage {
         let productAdded = false;
         for (let i = 0; i < itemCount; i++) {
             let itemName = await this.itemsInCart.nth(i).textContent();
-            if (itemName?.includes('Nike Mens E-Series Running Shoes')) {
-                await expect(this.itemsInCart.nth(i), 'Verify added product title in cart').toContainText("Nike Mens E-Series Running Shoes");
+            if (itemName?.includes("Full Force Low Men's Shoes")) {
+                await expect(this.itemsInCart.nth(i), 'Verify added product title in cart').toContainText("Full Force Low Men's Shoes");
                 productAdded = true;
                 break;
             }

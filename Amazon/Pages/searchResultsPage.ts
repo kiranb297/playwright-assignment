@@ -10,7 +10,7 @@ export class searchResultsPage {
     constructor(public readonly page: Page) {
         this.resultPage = this.page.getByText('Results', { exact: true });
         this.searchedProductName = this.page.locator("//span[contains(@data-component-type,'result-info')]//span[contains(text(),'results')]/following-sibling::span[@class]");
-        this.nikeShoe = this.page.locator("//span[text()='Mens E-Series 1.0 Running Shoe']");
+        this.nikeShoe = this.page.locator("//span[text()='Mens Full Force LoRunning Shoe']");
     }
 
     // Verify it is showing results for "searched product".
